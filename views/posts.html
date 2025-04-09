@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using MongoDB</title>
+  <link rel="stylesheet" href="css/lux.css" />
+  <link rel="stylesheet" href="css/animationNav.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <!-- Add the new full-width layout CSS -->
+  <link rel="stylesheet" href="css/fullwidth.css">
+  <link rel="stylesheet" href="css/navBar.css">
+  <link rel="icon" type="image/svg+xml" href="img/fav.svg">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button
+                class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+                type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="toggler-icon top-bar"></span>
+                <span class="toggler-icon middle-bar"></span>
+                <span class="toggler-icon bottom-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                            aria-current="page"
+                            href="index.html">Securish</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="oneWay.html">One Way Hash</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="RSA.html">RSA</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                
+                <!-- The button group moved outside of the ul for proper alignment -->
+                <div class="btn-group" role="group" aria-label="Registration and Login" id="aa">
+                  <button class="btn btn-outline-secondary" id="register">
+                      Register
+                  </button>
+                  <button class="btn btn-outline-secondary" id="login">
+                      Log in
+                  </button>
+                  <button class="btn btn-outline-danger" id="logout" style="display: none;">
+                      Logout
+                  </button>
+              </div>
+            </div>
+        </div>
+    </nav>
+
+    </header>
+    <hr />
+    <main role="main">
+      <!-- Status message area for notifications -->
+      <div id="statusMessage" class="alert" style="display: none;"></div>
+      
+      <div class="card" id="post">
+        <form class="row bg-white">
+          <fieldset>
+            <legend class="text-center h2">Post Details</legend>
+            <div class="col-md-10">
+              <label for="_id" class="form-label h4">Post ID</label>
+              <input id="_id" name="_id" class="form-control" readonly />
+            </div>
+            <div class="col-md-10">
+              <label for="Topic" class="form-label h4">Topic</label>
+              <input id="Topic" name="Topic" class="form-control" />
+            </div>
+            <div class="col-md-10">
+              <label for="Message" class="form-lable h4">Message</label>
+              <textarea id="Message" name="Message" class="form-control" rows="5" placeholder="Type your message"
+                maxlength="280" minlength="50"></textarea>
+            </div>
+            <div class="col-md-10 member-only" style="display: none;">
+              <label for="EncryptedMessage" class="form-label h4">Encrypted Message</label>
+              <textarea id="EncryptedMessage" name="EncryptedMessage" class="form-control" rows="3" readonly></textarea>
+            </div>
+            <div class="col-md-10">
+              <label for="By" class="form-label h4">Posted By</label>
+              <input name="By" id="By" class="form-control" readonly />
+            </div>
+            <div class="col-md-10">
+              <label for="At" class="form-label h4">Posted At</label>
+              <input name="At" id="At" class="form-control" readonly />
+            </div>
+            <div class="col-md-10">
+              <div class="card-footer text-center">
+                <button class="btn btn-success" type="button" id="backButton">Back to Messages</button>
+                <button class="btn btn-warning member-only" type="button" id="editButton" style="display: none;">Edit Post</button>
+                <button class="btn btn-danger admin-only" type="button" id="deleteButton" style="display: none;">Delete Post</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <hr />
+      </div>
+      
+      <div class="card" id="posts">
+        <div class="card-header bg-primary text-white text-center h1" role="heading">
+          Posts by Members
+        </div>
+
+        <hr />
+        <div class="text-center h2" id="header"></div>
+        <div class="text-center">
+          <table class="table table-striped">
+            <thead></thead>
+            <tbody class="text-center" role="listbox"></tbody>
+          </table>
+          <div class="btn-group member-only" role="group" aria-label="Member Page" style="display: block;">
+            <a class="btn btn-primary" href="/postMessage">Post A message</a>
+          </div>
+        </div>
+
+        <br />
+        <hr />
+      </div>
+    </main>
+    <hr />
+    <div>
+      <footer class="text-center h3">
+        <kbd role="contentinfo">&copy;<span></span>. A. Zhang. All rights reserved</kbd>
+      </footer>
+    </div>
+  
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

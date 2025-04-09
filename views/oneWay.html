@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/lux.css" />
+        <link rel="stylesheet" href="css/animationNav.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/fullwidth.css">
+        <link rel="stylesheet" href="css/navBar.css">
+        <link rel="icon" type="image/svg+xml" href="img/fav.svg">
+        <link rel="stylesheet" href="css/OneWayHashstyle.css">
+        <title>Basic One-Way Hash - Securish</title>
+        
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"></a>
+                        <button
+                            class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+                            type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="toggler-icon top-bar"></span>
+                            <span class="toggler-icon middle-bar"></span>
+                            <span class="toggler-icon bottom-bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        aria-current="page"
+                                        href="index.html">Securish</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="oneWay.html">One Way Hash</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="RSA.html">RSA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">About</a>
+                                </li>
+                            </ul>
+                            
+                            <div class="btn-group" role="group" aria-label="Registration and Login" id="aa">
+                                <button class="btn btn-outline-secondary" id="register">
+                                    Register
+                                </button>
+                                <button class="btn btn-outline-secondary" id="login">
+                                    Log in
+                                </button>
+                                <button class="btn btn-outline-danger" id="logout" style="display: none;">
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <hr />
+            <main role="main" class="content-container">
+                <div class="row">
+                    <div class="col-md-12 card mb-3">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h2>Basic One-Way Hash Function</h2>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">
+                                A one-way hash function converts input data of any size into a fixed-size output, where it's practically impossible to reconstruct the original input from the output. This simple implementation demonstrates the basic principles.
+                            </p>
+                            
+                            <div class="hash-container">
+                                <h4>Test the Basic Hash Function</h4>
+                                <div class="form-group mb-3">
+                                    <label for="message-input" class="form-label">Enter a message to hash:</label>
+                                    <textarea class="form-control" id="message-input" rows="3" placeholder="Type your message here..."></textarea>
+                                </div>
+                                
+                                <button class="btn btn-primary" id="hash-button">Generate Hash</button>
+                                
+                                <div class="mt-3">
+                                    <label class="form-label">Hash Result:</label>
+                                    <div class="hash-output" id="hash-result">Hash will appear here...</div>
+                                </div>
+                            </div>
+                            
+                            <div class="algorithm-info">
+                                <h4>How This Basic Hash Function Works</h4>
+                                <p>This is a simple hash function that demonstrates the core concepts of hashing without cryptographic security. Here's how it works:</p>
+                                
+                                <ol>
+                                    <li>Each character in the input is converted to its ASCII code</li>
+                                    <li>The ASCII codes are combined using a simple mathematical formula</li>
+                                    <li>The result is converted to a hexadecimal string of fixed length</li>
+                                </ol>
+                                
+                                <div class="code-block">// Basic One-Way Hash Function
+function basicHash(input) {
+    let hash = 0;
+    
+    // If the input is empty, return a default hash
+    if (input.length === 0) return "00000000";
+    
+    // Process each character in the input
+    for (let i = 0; i < input.length; i++) {
+        // Get the character code
+        const char = input.charCodeAt(i);
+        
+        // Combine it with the current hash value
+        // (multiply by 31 and add character code)
+        hash = ((hash << 5) - hash) + char;
+        
+        // Convert to 32-bit integer
+        hash = hash & hash;
+    }
+    
+    // Convert to hexadecimal and ensure 8 characters
+    let hexHash = (hash >>> 0).toString(16);
+    
+    // Pad with zeros if necessary
+    while (hexHash.length < 8) {
+        hexHash = "0" + hexHash;
+    }
+    
+    return hexHash;
+}</div>
+                                
+                                <h5>Key Properties of a One-Way Hash Function</h5>
+                                <ul>
+                                    <li><strong>Fixed Output Length:</strong> This hash function always produces an 8-character hexadecimal output, regardless of input size.</li>
+                                    <li><strong>Deterministic:</strong> The same input will always produce the same output.</li>
+                                    <li><strong>One-Way:</strong> It should be difficult to reverse the hash to find the original input.</li>
+                                    <li><strong>Avalanche Effect:</strong> A small change in the input produces a significantly different output.</li>
+                                </ul>
+                                
+                                <div class="alert alert-warning">
+                                    <strong>Note:</strong> This is a simplified hash function for educational purposes only. It is <em>not</em> cryptographically secure and should not be used for password storage, data verification, or other security-critical applications. For real security applications, use established algorithms like SHA-256 or SHA-3.
+                                </div>
+                                
+                                <h5>Test the Avalanche Effect</h5>
+                                <p>Try changing just one character in your input message and observe how the hash output changes dramatically. This is a key property of good hash functions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <hr />
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- Company information -->
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <h5>Company Name</h5>
+                            <p class="text-muted">A brief description of your company or website.</p>
+                            <p class="text-muted small">
+                                1234 Street Name<br>
+                                City, ST 12345<br>
+                                info@example.com<br>
+                                (123) 456-7890
+                            </p>
+                        </div>
+                        
+                        <!-- Quick links -->
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <h5>Quick Links</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Newsletter signup -->
+                        <div class="col-md-4">
+                            <h5>Subscribe to our Newsletter</h5>
+                            <p class="text-muted">Stay updated with our latest news and offers.</p>
+                            <form>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" placeholder="Email address" aria-label="Email address">
+                                    <button class="btn btn-primary" type="button">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Copyright section -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <p class="text-muted small mb-0">© 2025 Company Name. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item"><a href="#" class="text-muted small">Privacy Policy</a></li>
+                                <li class="list-inline-item"><a href="#" class="text-muted small">Terms of Use</a></li>
+                                <li class="list-inline-item"><a href="#" class="text-muted small">Cookie Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+      
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/home.js"></script>
+        <script src="js/OneWayHome.js"></script>
+    </body>
+</html>

@@ -1,0 +1,147 @@
+/* Full-width layout styles for Bootswatch Lux themed website */
+
+/* Reset container width to enable full-width layout */
+body > .container {
+    max-width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+/* Adjust navbar for full-width */
+.navbar {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Make carousel full-width with reasonable height */
+.carousel {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.carousel-inner {
+    width: 100%;
+}
+
+.carousel-item {
+    height: 65vh; /* Reasonable height that works across devices */
+    max-height: 600px; /* Maximum height to prevent overly tall images */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover ensures the image fills the container while maintaining aspect ratio */
+    object-position: center; /* Center the image */
+}
+
+/* Content areas need padding for better readability */
+main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Container for the main content sections */
+main .row {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+/* Adjust footer for full-width */
+.footer {
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333333;
+}
+
+.footer h5 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.footer .text-muted {
+    color: #a7a7a7 !important;
+}
+
+.footer a {
+    color: #9DB4C0;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* List styling in footer */
+.footer ul.list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+.footer ul.list-inline li {
+    margin-right: 1rem;
+}
+
+/* Form elements in footer */
+.footer .form-control {
+    background-color: #1a1a1a;
+    border-color: #333333;
+    color: #ffffff;
+}
+
+.footer .form-control:focus {
+    border-color: #9DB4C0;
+    box-shadow: 0 0 0 0.25rem rgba(157, 180, 192, 0.25);
+}
+
+.footer .btn-primary {
+    background-color: #9DB4C0;
+    border-color: #9DB4C0;
+}
+
+.footer .btn-primary:hover {
+    background-color: #8ba3ae;
+    border-color: #8ba3ae;
+}
+
+/* Remove the inline footer if you're using the new footer component */
+footer.text-center.h3 {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 40vh; /* Smaller height on mobile */
+    }
+    
+    .footer .text-md-end {
+        text-align: left !important;
+        margin-top: 1rem;
+    }
+}
+
+/* Add container for main content sections where needed */
+.content-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Add horizontal padding to maintain readability on very wide screens */
+@media (min-width: 1400px) {
+    main {
+        padding-left: calc((100% - 1400px) / 2);
+        padding-right: calc((100% - 1400px) / 2);
+    }
+}

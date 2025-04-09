@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/lux.css" />
+        <link rel="stylesheet" href="css/animationNav.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <!-- Add the new full-width layout CSS -->
+        <link rel="stylesheet" href="css/fullwidth.css">
+        <link rel="stylesheet" href="css/navBar.css">
+        <link rel="icon" type="image/svg+xml" href="img/fav.svg">
+        <link rel="stylesheet" href="css/cardFullwidth.css">
+        <title>Securish</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"></a>
+                        <button
+                            class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+                            type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="toggler-icon top-bar"></span>
+                            <span class="toggler-icon middle-bar"></span>
+                            <span class="toggler-icon bottom-bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active"
+                                        aria-current="page"
+                                        href="index.html">Securish</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="oneWay.html">One Way Hash</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="RSA.html">RSA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="posts.html">post</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">About</a>
+                                </li>
+                            </ul>
+                            
+                            <!-- The button group moved outside of the ul for proper alignment -->
+                            <div class="btn-group" role="group" aria-label="Registration and Login" id="aa">
+                                <button class="btn btn-outline-secondary" id="register">
+                                    Register
+                                </button>
+                                <button class="btn btn-outline-secondary" id="login">
+                                    Log in
+                                </button>
+                                <button class="btn btn-outline-danger" id="logout" style="display: none;">
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Updated carousel with full-width class -->
+                <div id="carouselExampleAutoplaying"
+                    class="carousel slide carousel-fade full-width"
+                    data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/Secur1.jpg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/flyd-mT7lXZPjk7U-unsplash.jpg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/shahadat-rahman-BfrQnKBulYQ-unsplash.jpg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselExampleAutoplaying"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"
+                            aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselExampleAutoplaying"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"
+                            aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </header>
+
+            <hr />
+            <main role="main" class="content-container">
+                <div class="row" id='registerForm'>
+                    <div class="col-md-2 card mb-3"></div>
+                    <div class="col-md-8 card mb-3">
+                        <div class="card-header bg-info text-white h3">
+                            Register
+                        </div>
+                        <div class="card-body">
+                            <form action="register" method="post">
+                                <div class="form-group row">
+                                    <label for="email"
+                                        class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email"
+                                            class="form-control-plaintext"
+                                            id="email" name="email"
+                                            placeholder="Enter your email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="password"
+                                        class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password"
+                                            class="form-control" id="password"
+                                            name="password"
+                                            title="Password must contain at least 8 characters"
+                                            minlength="8" maxlength="20"
+                                            class="form-control"
+                                            placeholder="Enter Password"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="confirm"
+                                        class="col-sm-2 col-form-label">Confirm
+                                        Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password"
+                                            class="form-control" id="confirm"
+                                            name="confirm"
+                                            placeholder="Confirm your password"
+                                            title="Password must contain at least 8 characters"
+                                            minlength="8" maxlength="20">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <button type="clear"
+                                            class="btn btn-primary"
+                                            name='clear'>clear</button>
+                                        <button type="submit"
+                                            class="btn btn-primary"
+                                            id='signup'>Register</button>
+
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span id='signup-error'></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-2 card mb-3"></div>
+                </div>
+                <div class="row" id='loginForm'>
+                    <div class="col-md-2 card mb-3"></div>
+                    <div class="col-md-8 card mb-3">
+                        <div class="card-header bg-info text-white h3">
+                            Login
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group row">
+                                    <label for="email"
+                                        class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email"
+                                            class="form-control-plaintext"
+                                            id="email"
+                                            placeholder="Enter your email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="password"
+                                        class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password"
+                                            class="form-control" id="password"
+                                            placeholder="Type your password">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <button type="clear"
+                                            class="btn btn-primary"
+                                            name='clear'>clear</button>
+                                        <button type="submit"
+                                            class="btn btn-primary"
+                                            id='signin'>Login</button>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span id='signin-error'></span>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2 card mb-3"></div>
+                </div>
+                <div class="row" id="welcome">
+                    <div class="col-md-2 card mb-3"></div>
+                    <div class="col-md-8 card mb-3">
+                        <div
+                            class="card-header bg-primary text-white text-center">cryptography
+                            Background</div>
+                        <div class="card-body">
+                            <blockquote class="blockquote">
+                                <ul>
+                                    <ul>
+                                        <li>In cryptography, a cryptosystem is a suite of cryptographic algorithms needed to implement a particular security service, such as confidentiality (encryption).[1]</li>
+                                        <li>Typically, a cryptosystem consists of three algorithms: one for key generation, one for encryption, and one for decryption.</li>
+                                        <li>The term cipher (sometimes cypher) is often used to refer to a pair of algorithms, one for encryption and one for decryption.</li>
+                                        <li>Therefore, the term cryptosystem is most often used when the key generation algorithm is important.</li>
+                                        <li>For this reason, the term cryptosystem is commonly used to refer to public key techniques; however, both "cipher" and "cryptosystem" are used for symmetric key techniques.</li>
+                                      </ul>
+                                      
+                                </ul>
+                                <footer class="blockquote-footer">cryptography</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="col-md-2 card mb-3"></div>
+                </div>
+            </main>
+            <hr />
+
+            <!-- Remove the original basic footer -->
+            <!-- <footer class="text-center h3">
+                <kbd role="contentinfo">&copy;<span></span>. A. Zhang. All
+                    rights reserved</kbd>
+            </footer> -->
+
+            <!-- New footer with black background -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- Company information -->
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <h5>Company Name</h5>
+                            <p class="text-muted">A brief description of your company or website.</p>
+                            <p class="text-muted small">
+                                1234 Street Name<br>
+                                City, ST 12345<br>
+                                info@example.com<br>
+                                (123) 456-7890
+                            </p>
+                        </div>
+                        
+                        <!-- Quick links -->
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <h5>Quick Links</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Newsletter signup -->
+                        <div class="col-md-4">
+                            <h5>Subscribe to our Newsletter</h5>
+                            <p class="text-muted">Stay updated with our latest news and offers.</p>
+                            <form>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" placeholder="Email address" aria-label="Email address">
+                                    <button class="btn btn-primary" type="button">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Copyright section -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <p class="text-muted small mb-0">© 2025 Company Name. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item"><a href="#" class="text-muted small">Privacy Policy</a></li>
+                                <li class="list-inline-item"><a href="#" class="text-muted small">Terms of Use</a></li>
+                                <li class="list-inline-item"><a href="#" class="text-muted small">Cookie Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+      
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="js/bootstrap.bundle.min.js"></script>
+            <script src="js/auth.js"></script>
+            <script src="js/home.js"></script>
+        
+        
+
+    </body>
+</html>

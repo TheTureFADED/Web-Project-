@@ -1,0 +1,85 @@
+/* Footer styles with dark theme for Bootswatch Lux */
+
+/* Page layout styles */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+    padding: 20px;
+}
+
+/* Footer styling */
+.footer {
+    flex-shrink: 0;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2rem 0;
+    margin-top: auto;
+    border-top: 1px solid #333333;
+}
+
+.footer h5 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.footer .text-muted {
+    color: #a7a7a7 !important;
+}
+
+.footer a {
+    color: #9DB4C0;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* List styling in footer */
+.footer ul.list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+.footer ul.list-inline li {
+    margin-right: 1rem;
+}
+
+/* Form elements in footer */
+.footer .form-control {
+    background-color: #1a1a1a;
+    border-color: #333333;
+    color: #ffffff;
+}
+
+.footer .form-control:focus {
+    border-color: #9DB4C0;
+    box-shadow: 0 0 0 0.25rem rgba(157, 180, 192, 0.25);
+}
+
+.footer .btn-primary {
+    background-color: #9DB4C0;
+    border-color: #9DB4C0;
+}
+
+.footer .btn-primary:hover {
+    background-color: #8ba3ae;
+    border-color: #8ba3ae;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .footer .text-md-end {
+        text-align: left !important;
+        margin-top: 1rem;
+    }
+}

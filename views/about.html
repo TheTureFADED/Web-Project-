@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" href="css/lux.css" />
+  <link rel="stylesheet" href="css/animationNav.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <!-- Add the new full-width layout CSS -->
+  <link rel="stylesheet" href="css/fullwidth.css">
+  <link rel="stylesheet" href="css/navBar.css">
+  <link rel="icon" type="image/svg+xml" href="img/fav.svg">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <!-- `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid" role="banner">
+          <img src="img/question.png" class="img-responsive rrounded" alt="Bootstrap Logo" width="50" />
+          <a class="navbar-brand" href="#">Langara Forum</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Member
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                  <li>
+                    <a class="dropdown-item" href="posts.html">Posts</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="filter.html">Filter Posts</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="search,html">Search Posts</a>
+                  </li>
+
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="about.html">About Us</a>
+              </li>
+            </ul>
+
+            <div class="btn-group" role="group" aria-label="Registration and Login" id="aa">
+              <button class="btn btn-warning" id="register">
+                Register
+              </button>
+              <button class="btn btn-primary" id="login">
+                Log in
+              </button>
+            </div>
+
+
+          </div>
+        </div>
+      </nav> -->
+      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button
+                class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+                type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="toggler-icon top-bar"></span>
+                <span class="toggler-icon middle-bar"></span>
+                <span class="toggler-icon bottom-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                            aria-current="page"
+                            href="index.html">Securish</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="oneWay.html">One Way Hash</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="RSA.html">RSA</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                
+                <!-- The button group moved outside of the ul for proper alignment -->
+                <div class="btn-group" role="group" aria-label="Registration and Login" id="aa">
+                  <button class="btn btn-outline-secondary" id="register">
+                      Register
+                  </button>
+                  <button class="btn btn-outline-secondary" id="login">
+                      Log in
+                  </button>
+                  <button class="btn btn-outline-danger" id="logout" style="display: none;">
+                      Logout
+                  </button>
+              </div>
+            </div>
+        </div>
+    </nav>
+    
+    </header>
+    <hr />
+    <main role="main">
+      <div class="card">
+        <div class="card-header bg-primary text-white text-center" role="heading">
+          About The Site
+        </div>
+        <blockquote class="blockquote">
+          <p>This web development project involves building a dynamic website using Node.js as its backend framework, which facilitates efficient, event-driven server-side operations. The website exposes a RESTful API that enables standardized communication between the client and server using JSON as the data interchange format. Client-side functionality is managed with JavaScript, creating an interactive and responsive user experience, while MongoDB serves as the flexible, document-oriented database. This setup not only supports rapid development and scalability but also ensures that the system can handle real-world applications with robust performance and seamless integration of its components.</p>
+          <p>This website is designed to serve as a secure messaging platform. It accepts a user’s message, then applies either RSA encryption, which is reversible under controlled conditions, or an irreversible one-way encryption function to ensure the confidentiality of the content. Once encrypted, the message is posted, maintaining both data integrity and privacy throughout the process.</p>
+          <footer class="blockquote-footer">A.Z<sup>®</sup></footer>
+        </blockquote>
+      </div>
+    </main>
+    <hr />
+    <footer class="text-center h3">
+      <kbd role="contentinfo">&copy;<span></span>. A. Zhang. All rights reserved</kbd>
+    </footer>
+
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <!-- Company information -->
+              <div class="col-md-4 mb-4 mb-md-0">
+                  <h5>Company Name</h5>
+                  <p class="text-muted">A brief description of your company or website.</p>
+                  <p class="text-muted small">
+                      1234 Street Name<br>
+                      City, ST 12345<br>
+                      info@example.com<br>
+                      (123) 456-7890
+                  </p>
+              </div>
+              
+              <!-- Quick links -->
+              <div class="col-md-4 mb-4 mb-md-0">
+                  <h5>Quick Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Services</a></li>
+                      <li><a href="#">Portfolio</a></li>
+                      <li><a href="#">Contact</a></li>
+                  </ul>
+              </div>
+              
+              <!-- Newsletter signup -->
+              <div class="col-md-4">
+                  <h5>Subscribe to our Newsletter</h5>
+                  <p class="text-muted">Stay updated with our latest news and offers.</p>
+                  <form>
+                      <div class="input-group mb-3">
+                          <input type="email" class="form-control" placeholder="Email address" aria-label="Email address">
+                          <button class="btn btn-primary" type="button">Subscribe</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+          
+          <!-- Copyright section -->
+          <div class="row mt-4">
+              <div class="col-md-6">
+                  <p class="text-muted small mb-0">© 2025 Company Name. All rights reserved.</p>
+              </div>
+              <div class="col-md-6 text-md-end">
+                  <ul class="list-inline mb-0">
+                      <li class="list-inline-item"><a href="#" class="text-muted small">Privacy Policy</a></li>
+                      <li class="list-inline-item"><a href="#" class="text-muted small">Terms of Use</a></li>
+                      <li class="list-inline-item"><a href="#" class="text-muted small">Cookie Policy</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/home.js"></script>
+</body>
+
+</html>

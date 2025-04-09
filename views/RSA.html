@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/lux.css" />
+        <link rel="stylesheet" href="css/animationNav.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/fullwidth.css">
+        <link rel="stylesheet" href="css/navBar.css">
+        <link rel="icon" type="image/svg+xml" href="img/fav.svg">
+        <link rel="stylesheet" href="css/RSA.css">
+        <title>Simple RSA Encryption - Securish</title>
+       
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <nav class="navbar navbar-expand-lg bg-primary"
+                    data-bs-theme="dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"></a>
+                        <button
+                            class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+                            type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="toggler-icon top-bar"></span>
+                            <span class="toggler-icon middle-bar"></span>
+                            <span class="toggler-icon bottom-bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        aria-current="page"
+                                        href="index.html">Securish</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="oneWay.html">One
+                                        Way Hash</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active"
+                                        href="RSA.html">RSA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        href="about.html">About</a>
+                                </li>
+                            </ul>
+
+                            <div class="btn-group" role="group"
+                                aria-label="Registration and Login" id="aa">
+                                <button class="btn btn-outline-secondary"
+                                    id="register">
+                                    Register
+                                </button>
+                                <button class="btn btn-outline-secondary"
+                                    id="login">
+                                    Log in
+                                </button>
+                                <button class="btn btn-outline-danger"
+                                    id="logout" style="display: none;">
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <hr />
+            <main role="main" class="content-container">
+                <div class="row">
+                    <div class="col-md-12 card mb-3">
+                        <div
+                            class="card-header bg-primary text-white text-center">
+                            <h2>Basic RSA Encryption with Fixed Small
+                                Primes</h2>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">
+                                This is a minimal RSA implementation using small
+                                prime numbers (p=11, q=13) to demonstrate the
+                                basic principles of RSA encryption. This example
+                                uses fixed keys for educational purposes.
+                            </p>
+
+                            <div class="rsa-container">
+                                <h4>Key Information</h4>
+                                <p>This demo uses:</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul>
+                                            <li>Prime p = 11</li>
+                                            <li>Prime q = 13</li>
+                                            <li>n = p × q = 143</li>
+                                            <li>φ(n) = (p-1) × (q-1) = 120</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="key-display">
+                                            <div>Public Key (n, e): (143,
+                                                7)</div>
+                                            <div>Private Key (n, d): (143,
+                                                103)</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="math-step">
+                                    <strong>How these values were
+                                        calculated:</strong>
+                                    <ol>
+                                        <li>Choose prime numbers: p = 11, q =
+                                            13</li>
+                                        <li>Calculate n = p × q = 11 × 13 =
+                                            143</li>
+                                        <li>Calculate φ(n) = (p-1) × (q-1) = 10
+                                            × 12 = 120</li>
+                                        <li>Choose e (public exponent) = 7 (must
+                                            be coprime to 120)</li>
+                                        <li>Calculate d (private exponent) = 103
+                                            (modular inverse of e mod φ(n))</li>
+                                        <li>Verify: (e × d) mod φ(n) = (7 × 103)
+                                            mod 120 = 721 mod 120 = 1</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="rsa-container">
+                                <h4>Encrypt a Sentence</h4>
+                                <p>Enter a short sentence to encrypt. Each
+                                    character will be converted to its ASCII
+                                    code and encrypted separately.</p>
+
+                                <div class="form-group mb-3">
+                                    <label for="sentence-input"
+                                        class="form-label">Sentence to
+                                        encrypt:</label>
+                                    <input type="text" class="form-control"
+                                        id="sentence-input"
+                                        placeholder="Enter a short sentence">
+                                    <div class="form-text">Only use characters
+                                        with ASCII values less than 143</div>
+                                </div>
+
+                                <button class="btn btn-primary"
+                                    id="encrypt-btn">Encrypt Sentence</button>
+
+                                <div id="encrypt-result" class="mt-3"
+                                    style="display: none;">
+                                    <div class="math-step">
+                                        <h5>Encryption Process:</h5>
+                                        <div id="encrypt-steps"></div>
+                                    </div>
+                                    <div class="result-display mt-3"
+                                        id="encrypted-value"></div>
+                                </div>
+                            </div>
+
+                            <div class="rsa-container">
+                                <h4>Decrypt a Sentence</h4>
+                                <p>Enter the encrypted values (comma-separated)
+                                    to decrypt back to the original
+                                    sentence.</p>
+
+                                <div class="form-group mb-3">
+                                    <label for="encrypted-input"
+                                        class="form-label">Encrypted values
+                                        (comma-separated):</label>
+                                    <input type="text" class="form-control"
+                                        id="encrypted-input"
+                                        placeholder="Enter encrypted numbers separated by commas">
+                                </div>
+
+                                <button class="btn btn-success"
+                                    id="decrypt-btn">Decrypt Sentence</button>
+
+                                <div id="decrypt-result" class="mt-3"
+                                    style="display: none;">
+                                    <div class="math-step">
+                                        <h5>Decryption Process:</h5>
+                                        <div id="decrypt-steps"></div>
+                                    </div>
+                                    <div class="result-display mt-3"
+                                        id="decrypted-value"></div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-warning mt-4">
+                                <h5>Educational Note</h5>
+                                <p>This is a minimal implementation using very
+                                    small primes for educational purposes. Real
+                                    RSA:</p>
+                                <ul>
+                                    <li>Uses much larger prime numbers
+                                        (typically 1024-4096 bits)</li>
+                                    <li>Implements proper padding schemes</li>
+                                    <li>For longer messages, uses hybrid
+                                        encryption (RSA to encrypt a symmetric
+                                        key)</li>
+                                </ul>
+                                <p>The mathematical principles are the same, but
+                                    larger numbers make it computationally
+                                    infeasible to break the encryption.</p>
+                                <p><strong>Limitations of this demo:</strong>
+                                    Because we're using small numbers (n=143),
+                                    we can only encrypt characters with ASCII
+                                    values less than 143. This includes most
+                                    standard ASCII characters but excludes some
+                                    special characters and non-English
+                                    letters.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <hr />
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- Company information -->
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <h5>Company Name</h5>
+                            <p class="text-muted">A brief description of your
+                                company or website.</p>
+                            <p class="text-muted small">
+                                1234 Street Name<br>
+                                City, ST 12345<br>
+                                info@example.com<br>
+                                (123) 456-7890
+                            </p>
+                        </div>
+
+                        <!-- Quick links -->
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <h5>Quick Links</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Newsletter signup -->
+                        <div class="col-md-4">
+                            <h5>Subscribe to our Newsletter</h5>
+                            <p class="text-muted">Stay updated with our latest
+                                news and offers.</p>
+                            <form>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control"
+                                        placeholder="Email address"
+                                        aria-label="Email address">
+                                    <button class="btn btn-primary"
+                                        type="button">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Copyright section -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <p class="text-muted small mb-0">© 2025 Company
+                                Name. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item"><a href="#"
+                                        class="text-muted small">Privacy
+                                        Policy</a></li>
+                                <li class="list-inline-item"><a href="#"
+                                        class="text-muted small">Terms of
+                                        Use</a></li>
+                                <li class="list-inline-item"><a href="#"
+                                        class="text-muted small">Cookie
+                                        Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+
+        <script src="js/auth.js"></script>
+        <script src="js/home.js"></script>
+        <script src="js/RSA.js"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+/* CSS to position register and login buttons at the far right of the navbar */
+
+/* Push the button group to the far right */
+.navbar .navbar-collapse {
+    justify-content: space-between;
+}
+
+/* Style the button group container */
+.btn-group#aa {
+    margin-left: auto;
+    display: flex;
+}
+
+/* For mobile - ensure buttons appear at the bottom of the collapsed navbar */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        flex-direction: column;
+    }
+    
+    .btn-group#aa {
+        margin-top: 1rem;
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .btn-group#aa button {
+        flex: 1;
+    }
+}

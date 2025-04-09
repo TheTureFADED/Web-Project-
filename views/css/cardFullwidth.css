@@ -1,0 +1,50 @@
+/* Precise card layout for full-width design */
+main .row#welcome,
+main .row#registerForm,
+main .row#loginForm {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+main .row#welcome .col-md-8,
+main .row#registerForm .col-md-8,
+main .row#loginForm .col-md-8 {
+    flex: 0 0 66.666667%; /* Maintain 8-column width */
+    max-width: 66.666667%;
+    width: 100%;
+    padding: 0 15px; /* Add some padding */
+}
+
+main .row#welcome .card,
+main .row#registerForm .card,
+main .row#loginForm .card {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Hide side spacing columns */
+main .row#welcome .col-md-2,
+main .row#registerForm .col-md-2,
+main .row#loginForm .col-md-2 {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main .row#welcome .col-md-8,
+    main .row#registerForm .col-md-8,
+    main .row#loginForm .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+
+/* Ensure content container doesn't restrict width */
+.content-container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+}
