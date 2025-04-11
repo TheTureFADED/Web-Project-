@@ -3,7 +3,7 @@
     const setCopyrightYear = () => {
         document.querySelector('footer>kbd>span').innerHTML = new Date().getFullYear()
     }
-    const API_KEY = 'Your API Key'
+    const API_KEY = '9fca2f82f40122de3e422f98eeff962a'
     const baseAPI = `https://api.openweathermap.org/data/2.5/weather`
     /**----------------------------------------------------
     Utility functions
